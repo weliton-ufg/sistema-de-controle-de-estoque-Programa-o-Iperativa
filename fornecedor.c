@@ -36,6 +36,63 @@ void cadastrarFornecedor(){
     scanf(" %[^\n]s",fornecedor.endereco.complemento);
     salvarForncedorNoArquivo(fornecedor);
 }
+
+void listarrForncedores(){
+  FILE *pont_arq;
+  char linha[1024]; // variável do tipo string
+  pont_arq = fopen("fornecedores.txt", "r");
+  if(pont_arq == NULL)
+  {
+     printf("Erro na abertura do arquivo!");
+     return 1;
+  }
+     while(fscanf(pont_arq, " %[^\n]s",linha)!=EOF){
+
+        //strcpy(linha,"weliton;3232323;12");
+        Fornecedor fornecedor;
+        char *ptr;
+        ptr=strtok(linha,";");
+        fornecedor.codigo=atoi(ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.nome,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.cnpj,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.telefone,ptr);
+        ptr=strtok(NULL,";");
+        fornecedor.endereco.codigo=atoi(ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.cep,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.uf,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.cidade,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.bairro,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.logradouro,ptr);
+        ptr=strtok(NULL,";");
+        strcpy(fornecedor.endereco.complemento,ptr);
+        ptr=strtok(NULL,";");
+
+        printf("\nCódigo:%d ",fornecedor.codigo);
+        printf("\nNome:%s ",fornecedor.nome);
+        printf("\nTelefone:%s ",fornecedor.cnpj);
+        printf("\nIdade:%s ",fornecedor.telefone);
+        printf("\nEndereço");
+        printf("\nCódigo:%d ",fornecedor.endereco.codigo);
+        printf("\nCep:%s ",fornecedor.endereco.cep);
+        printf("\nUf:%s ",fornecedor.endereco.uf);
+        printf("\nCidade:%s ",fornecedor.endereco.cidade);
+        printf("\nBairro:%s ",fornecedor.endereco.bairro);
+        printf("\nLogradouro:%s ",fornecedor.endereco.logradouro);
+        printf("\nComplemento:%s ",fornecedor.endereco.complemento);
+
+        printf("\n");
+    }
+  fclose(pont_arq);
+}
+
 void salvarForncedorNoArquivo(Fornecedor fornecedor){
     FILE *pont_arq; // cria variável ponteiro para o arquivo
 

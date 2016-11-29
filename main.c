@@ -36,6 +36,13 @@ int main(){
                         }
                     break;
                     case 'l': case'L':
+                        fflush(stdin);
+                        listarrForncedores();
+                        printf("\nDigite qualquer tecla para continuar\n");
+                        char tecla;
+                        scanf("%c",&tecla);
+                        fflush(stdin);
+                        goto VOLTARMENURFORNECEDORES;
                     break;
                     case 'b': case'B':
                     break;
