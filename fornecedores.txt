@@ -1,0 +1,6 @@
+1;weliton marcos;23232323;(62)23232323;1;3232323;go;goiania;progresso;rua k;proximo a perimetral norte
+2;Ana;221212;121212;2;12212123progresso;go;anapolis;progresso;rua 1;sss
+3;a;1;2;3;4;pa;cit;b;logr;com
+5;aline;232;232323;5;3232332;go;abadia;bairro teste;rua 3;nao tem
+1;S;2;2;2;2;D;D;D;D;D
+3;F;23;23;2;2332;GO;ANAPOLIS;bairro;logr;sdsd

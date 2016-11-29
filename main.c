@@ -13,10 +13,27 @@ int main(){
         switch(opcao){
             case 'f': case'F':
                 system("cls");
+                VOLTARMENURFORNECEDORES:
                 opcao=menurFornecedores();
                 fflush(stdin);
                 switch(opcao){
                     case 'c': case'C':
+                        CADASTRARFORNECEDOR:
+                        cadastrarFornecedor();
+                        fflush(stdin);
+                        opcao=menurCadastro();
+                        fflush(stdin);
+                        switch(opcao){
+                            case 'c': case'C':
+                                system("cls");
+                                goto CADASTRARFORNECEDOR;
+                            break;
+                            case 'v': case'V':
+                                system("cls");
+                                goto VOLTARMENURFORNECEDORES;
+                            break;
+
+                        }
                     break;
                     case 'l': case'L':
                     break;
