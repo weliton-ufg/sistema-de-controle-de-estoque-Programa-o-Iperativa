@@ -28,6 +28,19 @@ char* menurFornecedores(){
     printf("\n##########################################################\n");
     return opcao=getchar();
 }
+char* menurCadastro(){
+    char opcao;
+    printf("\n#############           SUB MENUR            #############");
+    printf("\n#                                                        #");
+    printf("\n#        Digite um comando para prosseguir:              #");
+    printf("\n#                                                        #");
+    printf("\n#        C – COntinuar cadastrando.                      #");
+    printf("\n#        V - Voltar ao menur anterior.                   #");
+    printf("\n#        S – Sair                                        #");
+    printf("\n#                                                        #");
+    printf("\n##########################################################\n");
+    return opcao=getchar();
+}
 
 void mensagemFimPrograma(){
     printf("\n#######   OBRIGADO POR ULTILIZAR NOSSO SISTEMA    ########");
