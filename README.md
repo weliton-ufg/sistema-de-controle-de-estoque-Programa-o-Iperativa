@@ -1,1 +1,1 @@
-# sistema-de-controle-de-estoque-Programa-o-Iperativa
+# sistema-de-controle-de-estoque-Programação-Iperativa
