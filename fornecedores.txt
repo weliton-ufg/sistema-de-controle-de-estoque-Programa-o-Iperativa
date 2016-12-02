@@ -4,7 +4,3 @@
 5;aline;232;232323;5;3232332;go;abadia;bairro teste;rua 3;nao tem
 1;S;2;2;2;2;D;D;D;D;D
 3;F;23;23;2;2332;GO;ANAPOLIS;bairro;logr;sdsd
-<<<<<<< HEAD
-=======
-1;weliton;2121212;1212121;2;22121212b teste;pa;xingu;b teste;rua 4;s
->>>>>>> listarfornecedores

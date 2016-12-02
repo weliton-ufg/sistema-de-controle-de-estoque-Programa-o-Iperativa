@@ -1,11 +1,15 @@
 #include "endereco.c"
-typedef struct{
+typedef struct {
     int codigo;
     char nome[100];
     char cnpj[14];
     char telefone[14];
     Endereco endereco;
+    struct Fornecedor *prox;
 }Fornecedor;
+
+Fornecedor *primeiroFornecedor;
+Fornecedor *ultimoFornecedor;
 
 void cadastrarFornecedor(){
     Fornecedor fornecedor;
@@ -37,7 +41,7 @@ void cadastrarFornecedor(){
     salvarForncedorNoArquivo(fornecedor);
 }
 
-void listarrForncedores(){
+void listarForncedores(){
   FILE *pont_arq;
   char linha[1024]; // variável do tipo string
   pont_arq = fopen("fornecedores.txt", "r");
@@ -46,9 +50,8 @@ void listarrForncedores(){
      printf("Erro na abertura do arquivo!");
      return 1;
   }
+  criarListaVazia();
      while(fscanf(pont_arq, " %[^\n]s",linha)!=EOF){
-
-        //strcpy(linha,"weliton;3232323;12");
         Fornecedor fornecedor;
         char *ptr;
         ptr=strtok(linha,";");
@@ -74,22 +77,9 @@ void listarrForncedores(){
         ptr=strtok(NULL,";");
         strcpy(fornecedor.endereco.complemento,ptr);
         ptr=strtok(NULL,";");
-
-        printf("\nCódigo:%d ",fornecedor.codigo);
-        printf("\nNome:%s ",fornecedor.nome);
-        printf("\nTelefone:%s ",fornecedor.cnpj);
-        printf("\nIdade:%s ",fornecedor.telefone);
-        printf("\nEndereço");
-        printf("\nCódigo:%d ",fornecedor.endereco.codigo);
-        printf("\nCep:%s ",fornecedor.endereco.cep);
-        printf("\nUf:%s ",fornecedor.endereco.uf);
-        printf("\nCidade:%s ",fornecedor.endereco.cidade);
-        printf("\nBairro:%s ",fornecedor.endereco.bairro);
-        printf("\nLogradouro:%s ",fornecedor.endereco.logradouro);
-        printf("\nComplemento:%s ",fornecedor.endereco.complemento);
-
-        printf("\n");
+        inseriNaLista(fornecedor);
     }
+    imprimir();
   fclose(pont_arq);
 }
 
@@ -108,4 +98,47 @@ void salvarForncedorNoArquivo(Fornecedor fornecedor){
             fornecedor.endereco.logradouro,fornecedor.endereco.complemento);
     fclose(pont_arq);
     printf("Dados gravados com sucesso!\n");
+}
+
+void criarListaVazia(){
+    primeiroFornecedor= (Fornecedor *)malloc(sizeof(Fornecedor));
+    ultimoFornecedor=primeiroFornecedor;
+}
+void inseriNaLista(Fornecedor fornecedor){
+    Fornecedor *fornecedorAux;
+    fornecedorAux = (Fornecedor *)malloc(sizeof(Fornecedor));
+    fornecedorAux->codigo =fornecedor.codigo;
+    strcpy( fornecedorAux->nome,fornecedor.nome);
+    strcpy( fornecedorAux->cnpj,fornecedor.cnpj);
+    strcpy( fornecedorAux->telefone,fornecedor.telefone);
+    fornecedorAux->endereco.codigo=fornecedor.endereco.codigo;
+    strcpy( fornecedorAux->endereco.cep,fornecedor.endereco.cep);
+    strcpy( fornecedorAux->endereco.uf,fornecedor.endereco.uf);
+    strcpy( fornecedorAux->endereco.cidade,fornecedor.endereco.cidade);
+    strcpy( fornecedorAux->endereco.bairro,fornecedor.endereco.bairro);
+    strcpy( fornecedorAux->endereco.logradouro,fornecedor.endereco.logradouro);
+    strcpy( fornecedorAux->endereco.complemento,fornecedor.endereco.complemento);
+    ultimoFornecedor->prox=fornecedorAux;
+    ultimoFornecedor=ultimoFornecedor->prox;
+    fornecedorAux->prox=NULL;
+}
+void imprimir(){
+    Fornecedor *fornecedorAux;
+    fornecedorAux=primeiroFornecedor->prox;
+    while(fornecedorAux!= NULL){
+        printf("\nCódigo:%d ",fornecedorAux->codigo);
+        printf("\nNome:%s ",fornecedorAux->nome);
+        printf("\nTelefone:%s ",fornecedorAux->cnpj);
+        printf("\nIdade:%s ",fornecedorAux->telefone);
+        printf("\nEndereço");
+        printf("\nCódigo:%d ",fornecedorAux->endereco.codigo);
+        printf("\nCep:%s ",fornecedorAux->endereco.cep);
+        printf("\nUf:%s ",fornecedorAux->endereco.uf);
+        printf("\nCidade:%s ",fornecedorAux->endereco.cidade);
+        printf("\nBairro:%s ",fornecedorAux->endereco.bairro);
+        printf("\nLogradouro:%s ",fornecedorAux->endereco.logradouro);
+        printf("\nComplemento:%s ",fornecedorAux->endereco.complemento);
+        printf("\n");
+        fornecedorAux=fornecedorAux->prox;
+    }
 }

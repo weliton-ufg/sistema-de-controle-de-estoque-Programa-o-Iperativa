@@ -37,7 +37,7 @@ int main(){
                     break;
                     case 'l': case'L':
                         fflush(stdin);
-                        listarrForncedores();
+                        listarForncedores();
                         printf("\nDigite qualquer tecla para continuar\n");
                         char tecla;
                         scanf("%c",&tecla);
