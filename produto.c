@@ -30,7 +30,8 @@ void cadastrarProduto(int codigoFornecedor){
     printf("\n1-ALIMENTOS");
     printf("\n2-ELETRÔNICOS");
     printf("\n3-ELETRODOMESTICOS:");
-    printf("\n4-VESTUÁRIO:");
+    printf("\n4-MOVEIS:");
+    printf("\n5-VESTUÁRIO:");
     int categoria;
     CATEGORIA:
     scanf("%d",&categoria);
@@ -42,8 +43,11 @@ void cadastrarProduto(int codigoFornecedor){
     }else if(categoria==3){
         strcpy(produto.categoria,"ELETRODOMESTICOS");
     }else if(categoria==4){
+        strcpy(produto.categoria,"MOVEIS");
+    }else if(categoria==5){
         strcpy(produto.categoria,"VESTUÁRIO");
-    }else{
+    }
+    else{
         printf("Opção inválida!");
      goto CATEGORIA;
     }
