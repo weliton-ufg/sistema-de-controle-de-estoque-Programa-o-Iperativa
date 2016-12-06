@@ -41,6 +41,23 @@ char* menurCadastro(){
     printf("\n##########################################################\n");
     return opcao=getchar();
 }
+char* menurProdutos(){
+    char opcao;
+    printf("\n#############       GESTÃO DE PRODUTOS       #############");
+    printf("\n#                                                        #");
+    printf("\n#        Digite um comando para prosseguir:              #");
+    printf("\n#                                                        #");
+    printf("\n#        C – Cadastrar um produto.                       #");
+    printf("\n#        L – Listar todos os produtos cadastrados.       #");
+    printf("\n#        B – Buscar produto já cadastrado.               #");
+    printf("\n#        A – Atualizar um produto cadastrado.            #");
+    printf("\n#        S – Atualizar estoque de um produto.            #");
+    printf("\n#        E – Excluir um produto cadastrado.              #");
+    printf("\n#        Z – Sair                                        #");
+    printf("\n#                                                        #");
+    printf("\n##########################################################\n");
+    return opcao=getchar();
+}
 
 void mensagemFimPrograma(){
     printf("\n#######   OBRIGADO POR ULTILIZAR NOSSO SISTEMA    ########");

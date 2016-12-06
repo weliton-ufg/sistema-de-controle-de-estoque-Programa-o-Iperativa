@@ -1,4 +1,4 @@
-typedef struct{
+typedef struct {
     int codigo;
     char logradouro[200];
     char complemento[200];
