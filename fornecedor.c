@@ -32,7 +32,7 @@ void cadastrarFornecedor(int cod ,int flagOp){
         }
     }else{
         if(buscarFornecedor(2,0,cod)==1){
-            printf("\nCódigo Já Cadastrado!Tente outro Código");
+            printf("\nCódigo Já Cadastrado!Tente Outro Código");
             flagPedCod=1;
             goto COD;
         }

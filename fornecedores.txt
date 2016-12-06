@@ -4,7 +4,8 @@
 4;João;32323;23232323;3;3232323;go;goiania;progresso;fhdjfhdfd;hdfdjfh
 5;Flavia;232323;323232323;3;32323232dfdfdf;go;ffdfdf;dfdfdf;dfdfdfd;dfdfdf
 6;Ana Caroline;3232323;2323232;3;2323232;go;anapolis;sdsds;sdsdsd;sdsd
-7;A;2;2;1;21212;go;goiania;sdsd;sdsds;sdsdsd
 8;Weliton marcos;2121212;23232323;1;23233;go;goania;dsdsd;sdsd;sddd
 10;Barbara;23232323232;(63)999999999;2;Bairro 1Bairro 1;Rj;Rio de Janeiro;Bairro 1;rua 1;s/n
 0;Aline Morais;2323233;23;2;333333;SP;SÆo paulo;bairro 1;logradouro;s/n
+12;Marcos;12121212;121212122;2;2222222;RJ;sasas;asasas;sasas;asasas
+7;Amanda;2323232;2332323;3;32323232sss;PA;as;sss;sss;ssd

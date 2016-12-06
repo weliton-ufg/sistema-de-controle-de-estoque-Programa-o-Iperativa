@@ -45,7 +45,7 @@ int main(){
                         fflush(stdin);
                         buscarFornecedores();
                         listarForncedores();
-                        printf("\nDigite qualquer tecla para continuar\n");
+                        printf("\nDigite Qualquer Tecla Para Continuar\n");
                         char tecla;
                         scanf("%c",&tecla);
                         fflush(stdin);
@@ -68,7 +68,7 @@ int main(){
                             buscarFornecedor(2,0,codigo);
                         }
                         fflush(stdin);
-                        printf("\nDigite qualquer tecla para continuar\n");
+                        printf("\nDigite Qualquer Tecla Para Continuar\n");
                         char tecla2;
                         scanf("%c",&tecla2);
                         fflush(stdin);
@@ -76,14 +76,21 @@ int main(){
                         goto VOLTARMENURFORNECEDORES;
                     break;
                     case 'a': case'A':
-
+                        CODFA:
                         printf("\n CÓDIGO:\n");
                         int codFornecedor;
                         scanf(" %i",&codFornecedor);
-                        buscarFornecedor(2,1,codFornecedor);
+                        if( buscarFornecedor(2,1,codFornecedor)==1){
+                           salvarForncedorNoArquivo();
+                           system("cls");
+                        }else{
+                             printf("\nFornecedor Não Encontrado! Tente Novamente\n");
+                            goto CODFA;
+                        }
+
                         cadastrarFornecedor(codigoFornecedor,0);
                         fflush(stdin);
-                        printf("\nDigite qualquer tecla para continuar\n");
+                        printf("\nDigite Qualquer Tecla Para Continuar\n");
                         char tecla3;
                         scanf("%c",&tecla3);
                         fflush(stdin);
@@ -116,9 +123,9 @@ int main(){
                             scanf("%d",&cod);
                             codF=buscarFornecedor(2,0,cod);
                             if(codF==1){
-                                cadastrarProduto(cod);
+                                cadastrarProduto(cod,1,NULL);
                             }else{
-                                printf("\nFornecedor Não encontrado! Tente Novamente\n");
+                                printf("\nFornecedor Não Encontrado! Tente Novamente\n");
                                 goto CODF;
                             }
 
@@ -169,9 +176,89 @@ int main(){
                              goto CATEGORIA;
                             }
                             fflush(stdin);
-                            printf("\nDigite qualquer tecla para continuar\n");
+                            printf("\nDigite Qualquer Tecla Para Continuar\n");
                             char tecla;
                             scanf("%c",&tecla);
+                            fflush(stdin);
+                            system("cls");
+                            goto VOLTARMENURPRODUTOS;
+                        break;
+                        case 'b': case 'B':
+                            fflush(stdin);
+                            int op;
+                            printf("\nBUSCAR PRODUTO\n");
+                            printf("\n 1-BUSCAR POR NOME");
+                            printf("\n 2-BUSCAR POR CÓDIGO\n");
+                            scanf("%d",&op);
+                            if(op==1){
+                                buscarProduto(1,0,NULL);
+                            }if(op==2){
+                                int codigoP;
+                                printf("\n CÓDIGO:\n");
+                                scanf(" %i",&codigoP);
+                                buscarProduto(2,0,codigoP);
+                            }
+                            fflush(stdin);
+                            printf("\nDigite Qualquer Tecla Para Continuar\n");
+                            char tecla4;
+                            scanf("%c",&tecla4);
+                            fflush(stdin);
+                            system("cls");
+                            goto VOLTARMENURPRODUTOS;
+                            break;
+                        case 'e': case'E':
+                            fflush(stdin);
+                            int codPexc;
+                            printf("\nEXCLUIR PRODUTO\n");
+                            int codigoP;
+                            CODP:
+                            printf("\nCÓDIGO:\n");
+                            scanf(" %i",&codigoP);
+                            if(buscarProduto(2,1,codigoP)==1){
+                                printf("\nEXCLUIDO COM SUCESSO!\n");
+                                salvarProdutoNoArquivo();
+                            }else{
+                                printf("\nProduto Não Encontrado");
+                                printf("\nTente Com Outro Código!\n");
+                                goto CODP;
+                            }
+
+                            fflush(stdin);
+                            printf("\nDigite Qualquer Tecla Para Continuar\n");
+                            char tecla5;
+                            scanf("%c",&tecla5);
+                            fflush(stdin);
+                            system("cls");
+                            goto VOLTARMENURPRODUTOS;
+                            break;
+
+                        break;
+                        case 'a': case'A':
+                            CODP1:
+                            printf("\n CÓDIGO:\n");
+                            int codProduto;
+                            scanf(" %i",&codProduto);
+                            if(buscarProduto(2,1,codProduto)==1){
+                                CODF1:
+                                printf("\nCodigo Do Fornecedor:");
+                                scanf("%d",&cod);
+                                if(buscarFornecedor(2,0,cod)==1){
+                                    salvarProdutoNoArquivo();
+                                    system("cls");
+                                     cadastrarProduto(cod,0,codProduto);
+                                }else{
+                                    printf("\nFornecedor Não Encontrado! Tente Novamente\n");
+                                    goto CODF1;
+                                }
+                            }else{
+                                 printf("\nProduto Não Encontrado! Tente Novamente\n");
+                                 goto CODP1;
+                            }
+
+                            fflush(stdin);
+                            printf("\nDigite Qualquer Tecla Para Continuar\n");
+                            char tecla3;
+                            scanf("%c",&tecla3);
                             fflush(stdin);
                             system("cls");
                             goto VOLTARMENURPRODUTOS;
@@ -179,7 +266,7 @@ int main(){
                         case 'z': case'Z':
                             mensagemFimPrograma();
                         exit(0);
-                    break;
+                        break;
 
                     }
 
